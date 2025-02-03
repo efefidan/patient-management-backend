@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "appointments",
+  "info": {
+    "singularName": "appointment",
+    "pluralName": "appointments",
+    "displayName": "appointment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "appointments"
+    },
+    "schedule": {
+      "type": "datetime",
+      "required": true
+    },
+    "reason": {
+      "type": "string",
+      "required": true
+    },
+    "note": {
+      "type": "string"
+    },
+    "primaryPhysician": {
+      "type": "string",
+      "required": true
+    },
+    "appointmentStatus": {
+      "type": "enumeration",
+      "enum": [
+        "scheduled",
+        "pending",
+        "canceled"
+      ],
+      "required": true
+    },
+    "cancellationReason": {
+      "type": "string"
+    }
+  }
+}
